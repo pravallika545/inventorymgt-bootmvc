@@ -1,10 +1,13 @@
 package com.dxctraining.inventorymgt.item.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dxctraining.inventorymgt.item.dao.IItemDao;
+import com.dxctraining.inventorymgt.item.entities.Computer;
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.exceptions.InvalidItemArgumentException;
 
@@ -55,6 +58,12 @@ public class ItemServiceImpl implements IItemService {
 	public void removeItem(int id) {
 		dao.removeItem(id);
 		
+	}
+
+	@Override
+	public List<Computer> computerlist() {
+		List<Computer> list = dao.computerlist();
+		return list;
 	}
 
 }
