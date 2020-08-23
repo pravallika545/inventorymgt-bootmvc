@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.supplier.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,6 +59,12 @@ public class SupplierServiceImpl implements ISupplierService {
 		validateId(id);
 		dao.removeSupplier(id);
 		
+	}
+
+	@Override
+	public List<Supplier> listAll() {
+		List<Supplier> list = dao.listAll();
+		return list;
 	}
 	
 }
