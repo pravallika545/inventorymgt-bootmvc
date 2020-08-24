@@ -30,11 +30,11 @@ public class InventoryUi {
 	public void runUi() {
 		try {
 			List<Item> list = new ArrayList<>();
-			Supplier supplier1 = new Supplier("pravallika");
+			Supplier supplier1 = new Supplier("fazil","1111");
 			supplierService.addSupplier(supplier1);
-			Supplier supplier2 = new Supplier("pebbi");
+			Supplier supplier2 = new Supplier("adil","2222");
 			supplierService.addSupplier(supplier2);
-			Supplier supplier3 = new Supplier("sai");
+			Supplier supplier3 = new Supplier("mustaq","3333");
 			supplierService.addSupplier(supplier3);
 			
 			Item item1 = new Item("phone", supplier1);
@@ -61,24 +61,25 @@ public class InventoryUi {
 			list.add(item7);
 			itemService.addItem(item7);
 			
-			System.out.println("Fetching supplier by id");
+			System.out.println("*****Fetching supplier by id*****");
 			int id1 = supplier1.getId();
 			Supplier fetched = supplierService.findById(id1);
 			System.out.println("fetched id is "+fetched.getId()+" fetched supplier = "+fetched.getName());
 			
-			System.out.println("Deleting an item");
+			System.out.println("*****Deleting an item******");
 			int itemid3 = item3.getId();
 			itemService.removeItem(itemid3);
 			System.out.println("removed item id is "+itemid3);
 			
-			System.out.println("Fetching item by id");
+			System.out.println("******Fetching item by id******");
 			int itemid1 = item1.getId();
 			Item itemfetched = itemService.findById(itemid1);
-			System.out.println("fetched item id is "+itemfetched.getId()+" fetched item name is "+itemfetched.getName());
+			Supplier itemSupplier = itemfetched.getSupplier();
+			System.out.println("fetched item id is "+itemid1+" fetched item name is "+itemfetched.getName()+" item supplier is "+itemSupplier.getName());
 			
-			System.out.println("Displaying all  items");
+			System.out.println("*****Displaying all items*****");
 			for(Item item:list) {
-				displayItems(item);
+				displayAllItems(item);
 			}
 			
 		}catch (InvalidSupplierArgumentException e) {
@@ -89,25 +90,26 @@ public class InventoryUi {
 		
 	}
 
-	public void displayItems(Item item) {
+	public void displayAllItems(Item item) {
 		if(item instanceof Phone) {
-			Phone(item);
+			phone(item);
 		}
 		if(item instanceof Computer) {
 			computer(item);
 		}
-		System.out.println("item id is "+item.getId()+" item name is "+item.getName()+" item supplier is "+item.getSupplier());
+		
+		System.out.println("item id :"+item.getId()+" item name :"+item.getName()+" item supplier :"+item.getSupplier().getName());
+	}
+
+	private void computer(Item item) {
+		Computer c = (Computer)item;
+		System.out.println(" model name :"+c.getName()+" disc size :"+c.getDiscsize());
 		
 	}
 
-	public void computer(Item item) {
-		Computer c = (Computer)item;
-		System.out.println("model name is "+c.getName()+" disc space is"+c.getDiscsize());
-	}
-
-	public void Phone(Item item) {
-		Phone p = (Phone)item;
-		System.out.println("model name is "+p.getName()+" storage is "+p.getStoragesize());
+	private void phone(Item item) {
+		Phone ph = (Phone)item;
+		System.out.println(" model name :"+ph.getName()+" storage :"+ph.getStoragesize());
 	}
 
 }
