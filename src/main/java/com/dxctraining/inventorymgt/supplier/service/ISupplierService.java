@@ -9,5 +9,6 @@ public interface ISupplierService {
 	Supplier addSupplier(Supplier supplier);
 	Supplier updateSupplier(Supplier supplier);
 	void removeSupplier(int id);
-	List<Supplier> listAll();
+	List<Supplier>listAll();
+	boolean authentication(int id, String password);
 }
