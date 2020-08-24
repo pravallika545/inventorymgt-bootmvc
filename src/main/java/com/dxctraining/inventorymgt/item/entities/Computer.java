@@ -21,6 +21,10 @@ public class Computer extends Item {
 		super(name, supplier);
 		this.discsize = discsize;
 	}
+	public Computer(String name, int discsize) {
+		super(name);
+		this.discsize = discsize;
+	}
 	
 	public int getId() {
 		return id;
