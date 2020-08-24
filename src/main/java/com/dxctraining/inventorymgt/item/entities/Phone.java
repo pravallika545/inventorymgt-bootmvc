@@ -22,6 +22,11 @@ public class Phone extends Item {
 		super(name, supplier);
 		this.storagesize = storagesize;
 	}
+	
+	public Phone(String name, int storagesize) {
+		super(name);
+		this.storagesize = storagesize;
+	}
 
 	public int getId() {
 		return id;
