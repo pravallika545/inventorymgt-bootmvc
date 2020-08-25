@@ -30,11 +30,11 @@ public class InventoryUi {
 	public void runUi() {
 		try {
 			List<Item> list = new ArrayList<>();
-			Supplier supplier1 = new Supplier("fazil","1111");
+			Supplier supplier1 = new Supplier("pravallika","9898");
 			supplierService.addSupplier(supplier1);
-			Supplier supplier2 = new Supplier("adil","2222");
+			Supplier supplier2 = new Supplier("pragathi","2424");
 			supplierService.addSupplier(supplier2);
-			Supplier supplier3 = new Supplier("mustaq","3333");
+			Supplier supplier3 = new Supplier("pradeep","3434");
 			supplierService.addSupplier(supplier3);
 			
 			Item item1 = new Item("phone", supplier1);
@@ -47,37 +47,37 @@ public class InventoryUi {
 			list.add(item3);
 			itemService.addItem(item3);
 			
-			Phone item4 = new Phone("Apple", supplier1, 256);
+			Phone item4 = new Phone("Apple", supplier1, 200);
 			list.add(item4);
 			itemService.addItem(item4);
-			Phone item5 = new Phone("Oneplus", supplier2, 128);
+			Phone item5 = new Phone("Oneplus", supplier2, 100);
 			list.add(item5);
 			itemService.addItem(item5);
 			
-			Computer item6 = new Computer("Hp",supplier1,1024);
+			Computer item6 = new Computer("Hp",supplier1,1004);
 			list.add(item6);
 			itemService.addItem(item6);
-			Computer item7 = new Computer("Dell",supplier2, 2048);
+			Computer item7 = new Computer("Dell",supplier2, 2008);
 			list.add(item7);
 			itemService.addItem(item7);
 			
-			System.out.println("*****Fetching supplier by id*****");
+			System.out.println("Fetching supplier by id");
 			int id1 = supplier1.getId();
 			Supplier fetched = supplierService.findById(id1);
 			System.out.println("fetched id is "+fetched.getId()+" fetched supplier = "+fetched.getName());
 			
-			System.out.println("*****Deleting an item******");
+			System.out.println("Deleting an item");
 			int itemid3 = item3.getId();
 			itemService.removeItem(itemid3);
 			System.out.println("removed item id is "+itemid3);
 			
-			System.out.println("******Fetching item by id******");
+			System.out.println("Fetching item by id");
 			int itemid1 = item1.getId();
 			Item itemfetched = itemService.findById(itemid1);
 			Supplier itemSupplier = itemfetched.getSupplier();
 			System.out.println("fetched item id is "+itemid1+" fetched item name is "+itemfetched.getName()+" item supplier is "+itemSupplier.getName());
 			
-			System.out.println("*****Displaying all items*****");
+			System.out.println("Displaying all items");
 			for(Item item:list) {
 				displayAllItems(item);
 			}
